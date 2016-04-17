@@ -71,12 +71,12 @@ public class SalesMan {
     
     fill(0, 0, 0);
     stroke(0, 0, 0);
-    text("Distance = " + distance, xOrigin + 10, yOrigin + 20); 
+    text("Distance = " + distance, xOrigin + 10, yOrigin + 15); 
     
     for(int i = 0; i < cities.size(); i++) {
       City city = cities.get(i);
-      float x = xOrigin + map(city.location.x, 0, 100, 0, graphWidth);
-      float y = yOrigin + map(city.location.y, 0, 100, 10, graphHeight);
+      float x = xOrigin + map(city.location.x, 0, 100, 0, graphWidth - 10);
+      float y = yOrigin + map(city.location.y, 0, 100, 10, graphHeight - 10);
       
       fill(0);
       if(i == 0) {
@@ -89,8 +89,8 @@ public class SalesMan {
       
       if(i > 0) {
         City c = cities.get(i - 1);
-        float cx = xOrigin + map(c.location.x, 0, 100, 0, graphWidth);
-        float cy = yOrigin + map(c.location.y, 0, 100, 10, graphHeight);
+        float cx = xOrigin + map(c.location.x, 0, 100, 0, graphWidth - 10);
+        float cy = yOrigin + map(c.location.y, 0, 100, 10, graphHeight - 10);
         line(cx, cy, x, y);
       }
     }
