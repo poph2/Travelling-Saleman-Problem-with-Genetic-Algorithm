@@ -1,31 +1,31 @@
 
 public class SalesMan {
   
-  int[] graphLoc;
-  int[] graphDivision;
+  //int[] graphLoc;
+  //int[] graphDivision;
   
   float distance;
   
   ArrayList<City> cities;
   
-  ArrayList<City> citiesTrip;
+  //ArrayList<City> citiesTrip;
   
-  public SalesMan(ArrayList<City> c, int gIndex, int[] gDiv) {
-    graphDivision = gDiv;
-    graphLoc = new int[2];
-    graphLoc[0] = gIndex % gDiv[0];
-    graphLoc[1] = gIndex / gDiv[0];
+  public SalesMan(ArrayList<City> c) {
+    //graphDivision = gDiv;
+    //graphLoc = new int[2];
+    //graphLoc[0] = gIndex % gDiv[0];
+    //graphLoc[1] = gIndex / gDiv[0];
     
     distance = 0.0;
     
     cities = c;
-    citiesTrip = new ArrayList<City>();
+    
   }
   
-  void updateFields(int gIndex) {
+  /*void updateFields(int gIndex) {
     graphLoc[0] = gIndex % graphDivision[0];
     graphLoc[1] = gIndex / graphDivision[0];
-  }
+  }*/
   
   void getDistance() {
     for(int i = 1; i < cities.size(); i++) {
@@ -40,6 +40,7 @@ public class SalesMan {
   }
   
   void getRandomTrip() {
+    ArrayList<City> citiesTrip = new ArrayList<City>();
     for(int i = 0; i < cities.size(); i++) {
       City city = cities.get(i);
       
@@ -57,9 +58,7 @@ public class SalesMan {
     getDistance();
   }
   
-  void display() {
-    
-    
+  /*void display() {
     
     float graphWidth = width/(float)graphDivision[0];
     float graphHeight = height/(float)graphDivision[1];
@@ -95,7 +94,7 @@ public class SalesMan {
       }
     }
     
-    /*for(int i = 0; i < citiesTrip.size(); i++) {
+    / **for(int i = 0; i < citiesTrip.size(); i++) {
       City city = citiesTrip.get(i);
       
       fill(0);
@@ -117,8 +116,8 @@ public class SalesMan {
         float cy = yOrigin + map(c.location.y, 0, 100, 0, graphHeight);
         line(cx, cy, x, y);
       }
-    }*/
-  }
+    }** /
+  }*/
   
   /*void display() {
     
