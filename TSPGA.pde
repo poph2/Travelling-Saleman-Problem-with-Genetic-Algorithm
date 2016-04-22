@@ -1,10 +1,7 @@
 
 ArrayList<City> cities;
 
-
-SalesMan salesMan1, salesMan2, salesMan3;
-
-int salesMenCount = 5;
+int salesMenCount = 8;
 
 int[] graphDivision = {3, 3};
 
@@ -24,23 +21,11 @@ void setup() {
   }
   
   for(int i = 0; i < salesMenCount; i++) {
-    //for(int j = 0; j < graphDivision[1]; j++) {
-      //int[] graphLoc = {i, j};
-      //int graphIndex
       SalesMan salesM = new SalesMan(cities);
       salesM.getRandomTrip();
       salesMen.add(salesM);
-    //}
   }
   
-  //int[] graphLoc1 = {0, 0};
-  //salesMan1 = new SalesMan(cities, graphLoc1, graphDivision);
-  
-  //int[] graphLoc2 = {1, 2};
-  //salesMan2 = new SalesMan(cities, graphLoc2, graphDivision);
-  
-  //int[] graphLoc3 = {2, 3};
-  //salesMan3 = new SalesMan(cities, graphLoc3, graphDivision);
   //sort();
 }
 
@@ -60,9 +45,8 @@ void draw() {
     line(0, y, width, y);
   }
   
-  for(int i = 0; i < salesMen.size(); i++) {
-    //salesMen.get(i).display();
-  }
+  Display d = new Display(salesMen, graphDivision);
+  d.draw();
   
 }
 
