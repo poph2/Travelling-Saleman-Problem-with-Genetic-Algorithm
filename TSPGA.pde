@@ -5,7 +5,7 @@ int salesMenCount = 8;
 
 int[] graphDivision = {3, 3};
 
-int cityCount = 30;//graphDivision[0] * graphDivision[1];
+int cityCount = 5;//graphDivision[0] * graphDivision[1];
 
 ArrayList<SalesMan> salesMen;
   

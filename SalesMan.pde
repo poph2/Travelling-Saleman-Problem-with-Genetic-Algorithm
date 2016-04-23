@@ -37,6 +37,14 @@ public class SalesMan {
       
       distance = distance + sqrt(sq(x) + sq(y));
     }
+    
+    City cityA = cities.get(0);
+    City cityB = cities.get(cities.size() - 1);
+    
+    float x = abs(cityA.location.x - cityB.location.x);
+    float y = abs(cityA.location.y - cityB.location.y);
+      
+    distance = distance + sqrt(sq(x) + sq(y));
   }
   
   void getRandomTrip() {
