@@ -34,9 +34,6 @@ public class Display {
         
         ArrayList<City> cities = salesMan.cities;
         
-        
-        
-        
         for(int k = 0; k < cities.size(); k++) {
           City city = cities.get(k);
           float x = xOrigin + map(city.location.x, 0, 100, 0, graphWidth - 10);
@@ -51,7 +48,7 @@ public class Display {
           if(k == cities.size() - 1) {
             fill(255, 0, 0);
           }
-          text("Cities " + k + " - "+ city.location.x + ", " + city.location.y, xOrigin + 10, yOrigin + 45 + (k*10)); 
+          //text("Cities " + k + " - "+ city.location.x + ", " + city.location.y, xOrigin + 10, yOrigin + 45 + (k*10)); 
           ellipse(x, y, 10, 10);
           
           if(k > 0) {

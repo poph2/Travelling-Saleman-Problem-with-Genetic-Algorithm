@@ -1,11 +1,11 @@
 
 ArrayList<City> cities;
 
-int salesMenCount = 8;
+int salesMenCount = 90;
 
-int[] graphDivision = {3, 3};
+int[] graphDivision = {10, 10};
 
-int cityCount = 5;//graphDivision[0] * graphDivision[1];
+int cityCount = 30;//graphDivision[0] * graphDivision[1];
 
 ArrayList<SalesMan> salesMen;
   
@@ -26,7 +26,7 @@ void setup() {
       salesMen.add(salesM);
   }
   
-  //sort();
+  sort();
 }
 
 void draw() {
@@ -59,17 +59,15 @@ City getRandomCity(float maxX, float maxY) {
   return city;
 }
 
-/*void sort() {
+void sort() {
   
   for(int i = 0; i < salesMen.size(); i++) {
-    for(int j = 1; j < salesMen.size() -1; j++) {
-      if(salesMen.get(j-1).distance > salesMen.get(j).distance) {
+    for(int j = 1; j < salesMen.size(); j++) {
+      if(salesMen.get(j-1).distance < salesMen.get(j).distance) {
         SalesMan sTemp = salesMen.get(j-1);
         salesMen.set(j-1, salesMen.get(j));
-        salesMen.get(j-1).updateFields(j-1);
         salesMen.set(j, sTemp);
-        salesMen.get(j).updateFields(j);
       }
     }
   }
-}*/
+}
