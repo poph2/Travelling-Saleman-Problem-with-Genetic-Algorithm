@@ -1,23 +1,27 @@
 
 ArrayList<City> cities;
 
-int salesMenCount = 90;
+//int salesMenCount = 90;
 
 int[] graphDivision = {10, 10};
 
-int cityCount = 15;//graphDivision[0] * graphDivision[1];
+//int cityCount = 15;//graphDivision[0] * graphDivision[1];
 
-int generation = 0;
+int generationIndex = 0;
 float min = 0.0;
 float max = 0.0;
 
-ArrayList<SalesMan> salesMen;
+Generation generation;
+
+//ArrayList<SalesMan> salesMen;
   
 void setup() {
   size(640, 360);
   surface.setResizable(true);
   
-  cities = new ArrayList<City>();
+  generation = new Generation(0);
+  
+  /*cities = new ArrayList<City>();
   salesMen = new ArrayList<SalesMan>();
   
   for(int i = 0; i < cityCount; i++) {
@@ -28,15 +32,15 @@ void setup() {
       SalesMan salesM = new SalesMan(cities);
       salesM.getRandomTrip();
       salesMen.add(salesM);
-  }
+  }*/
   
-  sort();
+  //sort();
 }
 
 void draw() {
   background(255);
   
-  Display d = new Display(salesMen, graphDivision, generation, min, max);
+  Display d = new Display(generation, graphDivision, generationIndex, min, max);
   d.draw();
 }
 
@@ -53,7 +57,7 @@ void getStatistics() {
   //ci
 }
 
-void sort() {
+/*void sort() {
   
   for(int i = 0; i < salesMen.size(); i++) {
     for(int j = 1; j < salesMen.size(); j++) {
@@ -66,4 +70,4 @@ void sort() {
   }
   
   getStatistics();
-}
+}*/

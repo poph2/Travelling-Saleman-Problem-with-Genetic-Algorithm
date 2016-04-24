@@ -8,11 +8,11 @@ public class Display {
   float min;
   float max;
   
-  public Display(ArrayList<SalesMan> sMen, int[] gDiv, int gen, float min_, float max_) {
-    salesMen = sMen;
+  public Display(Generation gen, int[] gDiv, int genIndex, float min_, float max_) {
+    salesMen = gen.salesMen;
     graphDivision = gDiv;
     
-    generation = gen;
+    generation = genIndex;
     min = min_;
     max = max_;
   }
