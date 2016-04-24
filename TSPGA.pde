@@ -5,7 +5,11 @@ int salesMenCount = 90;
 
 int[] graphDivision = {10, 10};
 
-int cityCount = 30;//graphDivision[0] * graphDivision[1];
+int cityCount = 15;//graphDivision[0] * graphDivision[1];
+
+int generation = 0;
+float min = 0.0;
+float max = 0.0;
 
 ArrayList<SalesMan> salesMen;
   
@@ -32,22 +36,8 @@ void setup() {
 void draw() {
   background(255);
   
-  fill(0);
-  
-  for(int i = 1; i < graphDivision[0]; i++) {
-    float x = (float)i * (width/(float)graphDivision[0]);
-    line(x, 0, x, height);
-  }
-  
-  
-  for(int i = 0; i < graphDivision[1]; i++) {
-    float y = (float)i * (height/(float)graphDivision[1]);
-    line(0, y, width, y);
-  }
-  
-  Display d = new Display(salesMen, graphDivision);
+  Display d = new Display(salesMen, graphDivision, generation, min, max);
   d.draw();
-  
 }
 
 City getRandomCity(float maxX, float maxY) {
@@ -59,15 +49,21 @@ City getRandomCity(float maxX, float maxY) {
   return city;
 }
 
+void getStatistics() {
+  //ci
+}
+
 void sort() {
   
   for(int i = 0; i < salesMen.size(); i++) {
     for(int j = 1; j < salesMen.size(); j++) {
-      if(salesMen.get(j-1).distance < salesMen.get(j).distance) {
+      if(salesMen.get(j-1).distance > salesMen.get(j).distance) {
         SalesMan sTemp = salesMen.get(j-1);
         salesMen.set(j-1, salesMen.get(j));
         salesMen.set(j, sTemp);
       }
     }
   }
+  
+  getStatistics();
 }

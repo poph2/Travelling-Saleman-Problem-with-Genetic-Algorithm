@@ -1,19 +1,34 @@
 public class Display {
   
+  float border = 15.0;
+  
   ArrayList<SalesMan> salesMen;
   int[] graphDivision;
+  int generation;
+  float min;
+  float max;
   
-  public Display(ArrayList<SalesMan> sMen, int[] gDiv) {
+  public Display(ArrayList<SalesMan> sMen, int[] gDiv, int gen, float min_, float max_) {
     salesMen = sMen;
     graphDivision = gDiv;
+    
+    generation = gen;
+    min = min_;
+    max = max_;
   }
  
   void draw() {
     
-    float graphWidth = width/(float)graphDivision[0];
-    float graphHeight = height/(float)graphDivision[1];
+    drawLines();
+    
+    float graphWidth = (width - (border * 2))/(float)graphDivision[0];
+    float graphHeight = (height - (border * 2))/(float)graphDivision[1];
     
     int count = 0;
+    
+    text("Generation " + generation, border, 10); 
+    text("Minimum " + generation, border, 10); 
+    text("Maximum " + generation, border, 10); 
     
     for(int i = 0; i < graphDivision[0]; i++) {
       for(int j = 0; j < graphDivision[1]; j++) {
@@ -23,8 +38,8 @@ public class Display {
         SalesMan salesMan = salesMen.get(count);
         count++;
         
-        float xOrigin = (float)j * graphWidth;
-        float yOrigin = (float)i * graphHeight;
+        float xOrigin = border + ((float)j * graphWidth);
+        float yOrigin = border + ((float)i * graphHeight);
         
         //ellipse(xOrigin, yOrigin, 10, 10);
         
@@ -61,41 +76,22 @@ public class Display {
         
       }
     }
+  }
+  
+  void drawLines() {
     
-    /*
+    fill(0);
     
-    float xOrigin = (float)graphLoc[0] * graphWidth;
-    float yOrigin = (float)graphLoc[1] * graphHeight;
-    
-    //ellipse(xOrigin, yOrigin, 10, 10);
-    
-    fill(0, 0, 0);
-    stroke(0, 0, 0);
-    text("Distance = " + distance, xOrigin + 10, yOrigin + 15); 
-    
-    for(int i = 0; i < cities.size(); i++) {
-      City city = cities.get(i);
-      float x = xOrigin + map(city.location.x, 0, 100, 0, graphWidth - 10);
-      float y = yOrigin + map(city.location.y, 0, 100, 10, graphHeight - 10);
-      
-      fill(0);
-      if(i == 0) {
-        fill(0, 255, 0);
-      }
-      if(i == cities.size() - 1) {
-        fill(255, 0, 0);
-      }
-      ellipse(x, y, 10, 10);
-      
-      if(i > 0) {
-        City c = cities.get(i - 1);
-        float cx = xOrigin + map(c.location.x, 0, 100, 0, graphWidth - 10);
-        float cy = yOrigin + map(c.location.y, 0, 100, 10, graphHeight - 10);
-        line(cx, cy, x, y);
-      }
+    for(int i = 0; i <= graphDivision[0]; i++) {
+      float x = border + ((float)i * ((width - (border * 2))/(float)graphDivision[0]));
+      line(x, border, x, height-border); //<>//
     }
     
-    */
+    
+    for(int i = 0; i <= graphDivision[1]; i++) {
+      float y = border + ((float)i * ((height - (border * 2))/(float)graphDivision[1]));
+      line(border, y, width-border, y);
+    }
   }
   
 }
