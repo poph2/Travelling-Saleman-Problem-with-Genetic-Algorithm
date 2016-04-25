@@ -4,17 +4,17 @@ public class Display {
   
   ArrayList<SalesMan> salesMen;
   int[] graphDivision;
-  int generation;
+  int generationIndex;
   float min;
   float max;
   
-  public Display(Generation gen, int[] gDiv, int genIndex, float min_, float max_) {
+  public Display(Generation gen, int[] gDiv) {
     salesMen = gen.salesMen;
     graphDivision = gDiv;
     
-    generation = genIndex;
-    min = min_;
-    max = max_;
+    generationIndex = gen.generationIndex;
+    min = gen.min;
+    max = gen.max;
   }
  
   void draw() {

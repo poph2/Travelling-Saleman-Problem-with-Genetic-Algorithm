@@ -3,6 +3,9 @@ public class Generation {
   
   int generationIndex;
   
+  float min;
+  float max;
+  
   ArrayList<City> cities;
   ArrayList<SalesMan> salesMen;
  
@@ -10,10 +13,11 @@ public class Generation {
     
     generationIndex = genIndex;
     
+    min = 0.0;
+    max = 0.0;
+    
     cities = new ArrayList<City>();
     salesMen = new ArrayList<SalesMan>();
-    
-    getRandomGeneration(90, 15);
     
   }
   
@@ -27,6 +31,32 @@ public class Generation {
         salesM.getRandomTrip();
         salesMen.add(salesM);
     }
+    
+    sort();
+  }
+  
+  void sort() {
+  
+    for(int i = 0; i < salesMen.size(); i++) {
+      for(int j = 1; j < salesMen.size(); j++) {
+        if(salesMen.get(j-1).distance > salesMen.get(j).distance) {
+          SalesMan sTemp = salesMen.get(j-1);
+          salesMen.set(j-1, salesMen.get(j));
+          salesMen.set(j, sTemp);
+        }
+      }
+    }
+    
+    getStatistics();
+  }
+  
+  City getRandomCity(float maxX, float maxY) {
+    float x = random(10, maxX);
+    float y = random(10, maxY);
+    
+    City city = new City(new PVector(x, y));
+    
+    return city;
   }
   
   
