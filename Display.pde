@@ -26,9 +26,9 @@ public class Display {
     
     int count = 0;
     
-    text("Generation " + generation, border, 10); 
-    text("Minimum " + generation, border, 10); 
-    text("Maximum " + generation, border, 10); 
+    text("Generation " + generationIndex, border, 10); 
+    text("Minimum " + min, border + 150, 10); 
+    text("Maximum " + max, border + 300, 10); 
     
     for(int i = 0; i < graphDivision[0]; i++) {
       for(int j = 0; j < graphDivision[1]; j++) {

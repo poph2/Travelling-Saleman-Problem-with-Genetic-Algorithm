@@ -59,8 +59,9 @@ public class Generation {
     return city;
   }
   
-  
-  
-  
+  void getStatistics() {
+    min = salesMen.get(0).distance;
+    max = salesMen.get(salesMen.size()-1).distance;
+  }
   
 }

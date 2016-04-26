@@ -1,31 +1,17 @@
 
 public class SalesMan {
   
-  //int[] graphLoc;
-  //int[] graphDivision;
-  
   float distance;
   
   ArrayList<City> cities;
   
-  //ArrayList<City> citiesTrip;
-  
   public SalesMan(ArrayList<City> c) {
-    //graphDivision = gDiv;
-    //graphLoc = new int[2];
-    //graphLoc[0] = gIndex % gDiv[0];
-    //graphLoc[1] = gIndex / gDiv[0];
     
     distance = 0.0;
     
     cities = c;
     
   }
-  
-  /*void updateFields(int gIndex) {
-    graphLoc[0] = gIndex % graphDivision[0];
-    graphLoc[1] = gIndex / graphDivision[0];
-  }*/
   
   void getDistance() {
     for(int i = 1; i < cities.size(); i++) {

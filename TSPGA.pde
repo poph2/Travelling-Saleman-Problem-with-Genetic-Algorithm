@@ -29,9 +29,3 @@ void draw() {
   Display d = new Display(generation, graphDivision);
   d.draw();
 }
-
-
-
-void getStatistics() {
-  //ci
-}
