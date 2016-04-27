@@ -64,4 +64,16 @@ public class Generation {
     max = salesMen.get(salesMen.size()-1).distance;
   }
   
+  
+  Generation getNextGeneration() {
+    
+    cities = new ArrayList<City>();
+    salesMen = new ArrayList<SalesMan>();
+    
+    getRandomGeneration(90, 15);
+    
+    generationIndex = generationIndex + 1;
+    
+    return this;
+  }
 }

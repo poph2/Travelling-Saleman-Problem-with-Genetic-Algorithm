@@ -3,14 +3,22 @@ public class SalesMan {
   
   float distance;
   
+  int age;
+  
   ArrayList<City> cities;
   
   public SalesMan(ArrayList<City> c) {
     
     distance = 0.0;
     
+    age = 0;
+    
     cities = c;
     
+  }
+  
+  void survive() {
+    age += 1;
   }
   
   void getDistance() {
