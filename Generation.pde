@@ -1,6 +1,9 @@
 
 public class Generation {
   
+  int salesMenCount;
+  int cityCount;
+  
   int generationIndex;
   
   float min;
@@ -21,7 +24,11 @@ public class Generation {
     
   }
   
-  void getRandomGeneration(int salesMenCount, int cityCount) {
+  void getRandomGeneration(int salesMenCount_, int cityCount_) {
+    
+    salesMenCount = salesMenCount_;
+    cityCount = cityCount_;
+    
     for(int i = 0; i < cityCount; i++) {
       cities.add(getRandomCity(100, 100));
     }
@@ -70,7 +77,7 @@ public class Generation {
     cities = new ArrayList<City>();
     salesMen = new ArrayList<SalesMan>();
     
-    getRandomGeneration(90, 15);
+    getRandomGeneration(salesMenCount, cityCount);
     
     generationIndex = generationIndex + 1;
     

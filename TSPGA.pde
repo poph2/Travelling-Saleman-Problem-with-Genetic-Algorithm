@@ -3,10 +3,10 @@ ArrayList<City> cities;
 
 int[] graphDivision = {10, 10};
 
-int cityCount = 15;
+int cityCount = 12;
 int salesMenCount = 90;
 
-int generationIndex = 2;
+int generationIndex = 0;
 float min = 0.0;
 float max = 0.0;
 
@@ -33,12 +33,14 @@ void draw() {
   Display d = new Display(generation, graphDivision);
   d.draw();
   
-  if (frameCount % 20 == 0) {
-    // We are choosing to send in an input every 200 frames.
+  if (frameCount % 100 == 0) {
+    // We are choosing to send in an input every 100 frames.
     generation = generation.getNextGeneration();
     
     generationIndex = generationIndex + 1;
     generations.add(generation);
-    
+    //save("Generation - " + generationIndex + ".png");
   }
+  
+  
 }
